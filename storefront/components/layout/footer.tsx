@@ -5,15 +5,15 @@ import { clearConsent } from '@/lib/cookie-consent'
 import { usePolicies } from '@/hooks/use-policies'
 
 const footerLinks = {
-  shop: [
-    { label: 'All Products', href: '/products' },
-    { label: 'New Arrivals', href: '/products?sort=newest' },
-    { label: 'Collections', href: '/collections' },
+  rentals: [
+    { label: 'All Rentals', href: '/products' },
+    { label: 'SUP Boards', href: '/products' },
+    { label: 'Boats & Pedal Boats', href: '/products' },
   ],
   help: [
     { label: 'FAQ', href: '/faq' },
-    { label: 'Shipping & Returns', href: '/shipping' },
     { label: 'Contact Us', href: '/contact' },
+    { label: 'Getting Here', href: '/about' },
   ],
 }
 

@@ -82,15 +82,24 @@ export default function Header() {
 
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
-              <span className="font-heading text-2xl font-semibold tracking-tight">
-                Store
+              <span className="font-heading text-2xl font-semibold tracking-tight text-accent">
+                ZüriWater
               </span>
             </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
               <Link href="/products" className="text-sm tracking-wide uppercase link-underline py-1" prefetch={true}>
-                Shop All
+                Rentals
+              </Link>
+              <Link href="/about" className="text-sm tracking-wide uppercase link-underline py-1" prefetch={true}>
+                About
+              </Link>
+              <Link href="/faq" className="text-sm tracking-wide uppercase link-underline py-1" prefetch={true}>
+                FAQ
+              </Link>
+              <Link href="/contact" className="text-sm tracking-wide uppercase link-underline py-1" prefetch={true}>
+                Contact
               </Link>
               {collections?.slice(0, 4).map((collection: any) => (
                 <Link
@@ -153,7 +162,7 @@ export default function Header() {
             className="absolute inset-y-0 left-0 w-80 max-w-[85vw] bg-background animate-slide-in-right"
           >
             <div className="flex items-center justify-between p-4 border-b">
-              <span className="font-heading text-xl font-semibold">Menu</span>
+              <span className="font-heading text-xl font-semibold text-accent">ZüriWater</span>
               <button
                 ref={mobileMenuCloseRef}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -170,7 +179,31 @@ export default function Header() {
                 className="block py-3 text-lg tracking-wide border-b border-border/50"
                 prefetch={true}
               >
-                Shop All
+                Rentals
+              </Link>
+              <Link
+                href="/about"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block py-3 text-lg tracking-wide border-b border-border/50"
+                prefetch={true}
+              >
+                About
+              </Link>
+              <Link
+                href="/faq"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block py-3 text-lg tracking-wide border-b border-border/50"
+                prefetch={true}
+              >
+                FAQ
+              </Link>
+              <Link
+                href="/contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block py-3 text-lg tracking-wide border-b border-border/50"
+                prefetch={true}
+              >
+                Contact
               </Link>
               {collections?.map((collection: any) => (
                 <Link
