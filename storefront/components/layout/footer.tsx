@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { MapPin, Phone, Mail } from 'lucide-react'
 import { clearConsent } from '@/lib/cookie-consent'
 import { usePolicies } from '@/hooks/use-policies'
 
@@ -20,12 +21,10 @@ const footerLinks = {
 export default function Footer() {
   const { policies } = usePolicies()
 
-  // Build company links dynamically based on available policies
   const companyLinks = [
     { label: 'About', href: '/about' },
   ]
 
-  // Add policy links only if they're set in the admin
   if (policies?.privacy_policy) {
     companyLinks.push({ label: 'Privacy Policy', href: '/privacy' })
   }
@@ -47,21 +46,35 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block">
-              <span className="font-heading text-2xl font-semibold">
-                Store
+              <span className="font-heading text-2xl font-semibold text-accent">
+                ZüriWater
               </span>
             </Link>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
-              Curated products crafted with care. Quality you can feel, design you can see.
+              Premium SUP board and boat rentals on the shores of Lake Zurich. Open May – October, 7 days a week.
             </p>
+            <div className="mt-5 space-y-2">
+              <p className="text-sm text-muted-foreground flex items-center gap-2">
+                <MapPin className="h-3.5 w-3.5 text-accent flex-shrink-0" />
+                Zürichsee, Zürich, Switzerland
+              </p>
+              <p className="text-sm text-muted-foreground flex items-center gap-2">
+                <Phone className="h-3.5 w-3.5 text-accent flex-shrink-0" />
+                +41 44 000 00 00
+              </p>
+              <p className="text-sm text-muted-foreground flex items-center gap-2">
+                <Mail className="h-3.5 w-3.5 text-accent flex-shrink-0" />
+                hello@zuriwater.ch
+              </p>
+            </div>
           </div>
 
-          {/* Shop Links */}
+          {/* Rentals Links */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest mb-4">Shop</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-widest mb-4">Rentals</h3>
             <ul className="space-y-3">
-              {footerLinks.shop.map((link) => (
-                <li key={link.href}>
+              {footerLinks.rentals.map((link) => (
+                <li key={link.label}>
                   <Link href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     {link.label}
                   </Link>
@@ -75,7 +88,7 @@ export default function Footer() {
             <h3 className="text-xs font-semibold uppercase tracking-widest mb-4">Help</h3>
             <ul className="space-y-3">
               {footerLinks.help.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     {link.label}
                   </Link>
@@ -102,7 +115,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} Store. All rights reserved.
+            &copy; {new Date().getFullYear()} ZüriWater. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <button
